@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favourites - FreePlay</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.svg" />
+  </head>
+  <body data-page="favourites">
+    <header>
+      <a href="./index.html" class="logo">
+        <img src="./assets/favicon.svg" alt="icon" />
+        <h1>FreePlay</h1>
+      </a>
+      <button class="phoneOnly" id="navButton">
+        <img src="./assets/hamburgerMenu.svg" alt="Hamburger Menu" />
+      </button>
+      <nav class="phoneOnly off" id="navDropdown">
+        <ul>
+          <li>
+            <a class="navButton" href="./index.html"
+              ><img src="./assets/home.svg" alt="Home" />Home</a
+            >
+          </li>
+          <li>
+            <a class="navButton" href="./games.html"
+              ><img src="./assets/games.svg" alt="Games" />Games</a
+            >
+          </li>
+          <li>
+            <a class="navButton" href="./favourites.html"
+              ><img
+                src="./assets/favourite.svg"
+                alt="Favourites"
+              />Favourites</a
+            >
+          </li>
+          <li>
+            <a class="navButton" href="./contact.html"
+              ><img src="./assets/contact.svg" alt="Contact" />Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="pageTitle">
+        <h2>My favourites</h2>
+        <p>Saved games are stored in LocalStorage.</p>
+        <button id="clearFavourites">Clear favourites</button>
+      </section>
+
+      <section class="gamesGrid" id="favouritesGrid"></section>
+
+      <template id="gameCardTemplate">
+        <article class="gameCard">
+          <button class="saveButton">
+            <img class="notSavedIcon" src="./assets/favourite.svg" alt="Save" />
+            <img class="savedIcon" src="./assets/favourited.svg" alt="Saved" />
+            <span class="removeButtonText"></span>
+          </button>
+          <img class="gameImg" src="" alt="" />
+          <div class="gameInfo">
+            <p class="gameGenre"></p>
+            <h3 class="gameTitle"></h3>
+            <p class="gameText"></p>
+          </div>
+        </article>
+      </template>
+    </main>
+
+    <footer>
+      <p>
+        Game data from
+        <a href="https://www.freetogame.com/" target="_blank">FreeToGame</a>.
+      </p>
+    </footer>
+  </body>
+</html>

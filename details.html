@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game details - FreePlay</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.svg" />
+  </head>
+  <body data-page="details">
+    <header>
+      <a href="./index.html" class="logo">
+        <img src="./assets/favicon.svg" alt="icon" />
+        <h1>FreePlay</h1>
+      </a>
+      <button class="phoneOnly" id="navButton">
+        <img src="./assets/hamburgerMenu.svg" alt="Hamburger Menu" />
+      </button>
+      <nav class="phoneOnly off" id="navDropdown">
+        <ul>
+          <li>
+            <a class="navButton" href="./index.html"
+              ><img src="./assets/home.svg" alt="Home" />Home</a
+            >
+          </li>
+          <li>
+            <a class="navButton" href="./games.html"
+              ><img src="./assets/games.svg" alt="Games" />Games</a
+            >
+          </li>
+          <li>
+            <a class="navButton" href="./favourites.html"
+              ><img
+                src="./assets/favourite.svg"
+                alt="Favourites"
+              />Favourites</a
+            >
+          </li>
+          <li>
+            <a class="navButton" href="./contact.html"
+              ><img src="./assets/contact.svg" alt="Contact" />Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <a href="./games.html" class="backButton">
+        <img src="./assets/back.svg" alt="Back" />
+        <p>View all games</p>
+      </a>
+      <section class="detailsPage" id="detailsPage">
+        <p>Loading game...</p>
+      </section>
+
+      <template id="detailsPageTemplate">
+        <div class="detailsGrid">
+          <div>
+            <button class="saveButton detailsSaveButton">
+              <img
+                class="notSavedIcon"
+                src="./assets/favourite.svg"
+                alt="Save"
+              />
+              <img
+                class="savedIcon"
+                src="./assets/favourited.svg"
+                alt="Saved"
+              />
+            </button>
+            <img class="detailsImg" src="" alt="" />
+          </div>
+          <div>
+            <h2 class="detailsTitle"></h2>
+            <p class="detailsText"></p>
+            <div class="detailsInfo">
+              <span class="detailsGenre"></span>
+              <span class="detailsPlatform"></span>
+              <span class="detailsPublisher"></span>
+              <span class="detailsRelease"></span>
+            </div>
+            <a class="mainButton detailsPlayButton" href="" target="_blank"
+              >Play game</a
+            >
+          </div>
+        </div>
+      </template>
+    </main>
+
+    <footer>
+      <p>
+        Game data from
+        <a href="https://www.freetogame.com/" target="_blank">FreeToGame</a>.
+      </p>
+    </footer>
+  </body>
+</html>

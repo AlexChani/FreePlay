@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Games - FreePlay</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.svg" />
+  </head>
+  <body data-page="games">
+    <header>
+      <a href="./index.html" class="logo">
+        <img src="./assets/favicon.svg" alt="icon" />
+        <h1>FreePlay</h1>
+      </a>
+      <button class="phoneOnly" id="navButton">
+        <img src="./assets/hamburgerMenu.svg" alt="Hamburger Menu" />
+      </button>
+      <nav class="phoneOnly off" id="navDropdown">
+        <ul>
+          <li>
+            <a class="navButton" href="./index.html"
+              ><img src="./assets/home.svg" alt="Home" />Home</a
+            >
+          </li>
+          <li>
+            <a class="navButton" href="./games.html"
+              ><img src="./assets/games.svg" alt="Games" />Games</a
+            >
+          </li>
+          <li>
+            <a class="navButton" href="./favourites.html"
+              ><img
+                src="./assets/favourite.svg"
+                alt="Favourites"
+              />Favourites</a
+            >
+          </li>
+          <li>
+            <a class="navButton" href="./contact.html"
+              ><img src="./assets/contact.svg" alt="Contact" />Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="pageTitle">
+        <h2>Games list</h2>
+        <p>Search and filter free games from the FreeToGame API.</p>
+      </section>
+
+      <section class="filters">
+        <input id="searchInput" type="search" placeholder="Search game..." />
+
+        <select id="platformSelect">
+          <option value="all">All platforms</option>
+          <option value="pc">PC</option>
+          <option value="browser">Browser</option>
+        </select>
+
+        <select id="categorySelect">
+          <option value="all">All categories</option>
+          <option value="shooter">Shooter</option>
+          <option value="mmorpg">MMORPG</option>
+          <option value="strategy">Strategy</option>
+          <option value="moba">MOBA</option>
+          <option value="racing">Racing</option>
+          <option value="sports">Sports</option>
+          <option value="card">Card</option>
+        </select>
+      </section>
+
+      <p class="resultText" id="resultText">Loading games...</p>
+      <section class="gamesGrid" id="gamesGrid"></section>
+      <div class="pagination" id="paginationControls"></div>
+
+      <template id="gameCardTemplate">
+        <article class="gameCard">
+          <button class="saveButton">
+            <img class="notSavedIcon" src="./assets/favourite.svg" alt="Save" />
+            <img class="savedIcon" src="./assets/favourited.svg" alt="Saved" />
+          </button>
+          <img class="gameImg" src="" alt="" />
+          <div class="gameInfo">
+            <p class="gameGenre"></p>
+            <h3 class="gameTitle"></h3>
+            <p class="gameText"></p>
+          </div>
+        </article>
+      </template>
+    </main>
+
+    <footer>
+      <p>
+        Game data from
+        <a href="https://www.freetogame.com/" target="_blank">FreeToGame</a>.
+      </p>
+    </footer>
+  </body>
+</html>

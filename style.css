@@ -1,0 +1,512 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(10, 16, 20);
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+header {
+  background-color: rgb(17, 25, 35);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  width: 3rem;
+  height: 3rem;
+}
+
+h1 {
+  font-size: 1.7rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.7rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: Arial, sans-serif;
+}
+
+#navButton {
+  background-color: transparent;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#navDropdown {
+  position: absolute;
+  top: 4.5rem;
+  right: 1rem;
+  background-color: rgb(17, 25, 35);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  z-index: 5;
+}
+
+#navDropdown ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 12rem;
+  padding: 0.7rem;
+  border-radius: 0.4rem;
+}
+
+.navButton:hover {
+  background-color: rgb(28, 39, 52);
+}
+
+.off {
+  display: none;
+}
+
+main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+footer {
+  margin: 2rem auto 0;
+  padding: 1rem;
+  color: rgb(190, 202, 212);
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.15);
+}
+
+footer a {
+  color: #23d3a7;
+}
+
+.cyan {
+  color: #23d3a7;
+  font-weight: bold;
+}
+
+.mainButton,
+.detailsButton,
+#clearFavourites {
+  display: inline-block;
+  background-color: #23d3a7;
+  color: rgb(10, 16, 20);
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.7rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.backButton {
+  width: fit-content;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.25rem;
+  gap: 0.5rem;
+}
+
+.saveButton {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(17, 25, 35, 0.9);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.saveButton img {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.removeButton {
+  width: auto;
+  min-width: 6rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.removeButtonText {
+  display: none;
+  color: white;
+  font-weight: bold;
+}
+
+#clearFavourites {
+  background-color: rgb(255, 90, 110);
+  color: white;
+}
+
+.featuredGame {
+  position: relative;
+  background-color: rgb(17, 25, 35);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+}
+
+.featuredSaveButton {
+  top: 1rem;
+  right: 1rem;
+}
+
+.featuredImg {
+  width: 100%;
+  display: block;
+}
+
+.featuredContent {
+  padding: 1rem;
+}
+
+.featuredText {
+  color: #23d3a7;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle,
+.pageTitle {
+  margin: 2rem 0 1rem;
+}
+
+.sectionTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sectionTitle a, .backButton p {
+  color: #23d3a7;
+  font-weight: bold;
+}
+
+.pageTitle p,
+.gameText,
+.detailsText,
+.resultText,
+.savedSuggestions p {
+  color: rgb(190, 202, 212);
+}
+
+.gamesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.gameCard {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: rgb(17, 25, 35);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+  min-height: 6.5rem;
+}
+
+.gameImg {
+  width: 8rem;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.gameInfo {
+  flex: 1;
+  padding: 1rem;
+  padding-right: 4rem;
+}
+
+.gameTitle {
+  margin-bottom: 0.35rem;
+}
+
+.gameGenre {
+  color: #23d3a7;
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.gameText {
+  display: none;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  background-color: rgb(17, 25, 35);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filters input,
+.filters select,
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: rgb(28, 39, 52);
+  color: white;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.4rem;
+}
+
+.resultText {
+  margin: 1rem 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.pagination button {
+  background-color: #23d3a7;
+  border: none;
+  color: rgb(10, 16, 20);
+  border-radius: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: rgb(100, 116, 126);
+  cursor: default;
+}
+
+.pageInfo {
+  color: rgb(190, 202, 212);
+}
+
+.detailsPage {
+  background-color: rgb(17, 25, 35);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+}
+
+.detailsImg {
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.detailsGrid > div:first-child {
+  position: relative;
+}
+
+.detailsInfo {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.detailsInfo span {
+  background-color: rgb(28, 39, 52);
+  padding: 0.7rem;
+  border-radius: 0.4rem;
+}
+
+form {
+  background-color: rgb(17, 25, 35);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
+
+form textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.error {
+  color: rgb(255, 90, 110);
+  min-height: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.success {
+  color: #23d3a7;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.savedSuggestions {
+  margin-top: 2rem;
+}
+
+.suggestionItem {
+  background-color: rgb(17, 25, 35);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.detailsSaveButton {
+  position: block;
+  top: 1rem;
+  left: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .gamesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gameCard {
+    display: block;
+    min-height: auto;
+  }
+
+  .gameImg {
+    width: 100%;
+    height: auto;
+  }
+
+  .gameInfo {
+    padding: 1rem;
+  }
+
+  .gameText {
+    display: block;
+  }
+
+  .gameGenre {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 55rem) {
+  #navButton {
+    display: none;
+  }
+
+  #navDropdown,
+  #navDropdown.off {
+    display: block;
+    position: static;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  #navDropdown ul {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .navButton {
+    width: auto;
+  }
+
+  .featuredImg {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gamesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .detailsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .featuredSaveButton {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .featuredSaveButton img {
+    width: 2rem;
+    height: 2rem;
+  }
+}
