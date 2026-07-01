@@ -176,6 +176,41 @@ footer a {
   background-color: rgb(36, 52, 73);
 }
 
+button,
+.filters select {
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover,
+button:focus-visible,
+.filters select:hover,
+.filters select:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.12);
+}
+
+button:hover,
+button:focus-visible {
+  background-color: rgba(35, 211, 167, 0.95);
+}
+
+#navButton:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.mainButton:hover,
+.detailsButton:hover,
+#clearFavourites:hover,
+.pagination button:hover {
+  background-color: #1db18f;
+}
+
+.filters select:hover,
+.filters select:focus {
+  background-color: rgb(36, 53, 72);
+  border-color: rgba(35, 211, 167, 0.35);
+}
+
 .saveButton img {
   width: 1.4rem;
   height: 1.4rem;
@@ -247,9 +282,34 @@ footer a {
   gap: 1rem;
 }
 
-.sectionTitle a, .backButton p {
+.sectionTitle a,
+.backButton,
+.backButton p {
   color: #23d3a7;
   font-weight: bold;
+}
+
+.sectionTitle a,
+.backButton {
+  position: relative;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.sectionTitle a::after,
+.backButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.15rem;
+  height: 0.15rem;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.sectionTitle a:hover::after,
+.backButton:hover::after {
+  background-color: #23d3a7;
 }
 
 .pageTitle p,
@@ -333,6 +393,7 @@ form textarea {
   color: white;
   border: 0.0625rem solid rgba(255, 255, 255, 0.2);
   border-radius: 0.4rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .resultText {
@@ -457,6 +518,11 @@ form textarea {
 
   .filters {
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  .filters input {
+    grid-column: 1 / -1;
   }
 
   .gameCard {

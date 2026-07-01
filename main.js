@@ -141,8 +141,12 @@ function showGameCards(games, boxId, removeMode) {
   }
 }
 
-function getGames() {
-  return fetch(gamesApi).then(function (response) {
+function getGames(sortBy) {
+  var url = gamesApi;
+  if (sortBy) {
+    url += "?sort-by=" + encodeURIComponent(sortBy);
+  }
+  return fetch(url).then(function (response) {
     return response.json();
   });
 }
@@ -183,14 +187,17 @@ function loadHomePage() {
     return;
   }
 
-  getGames()
-    .then(function (games) {
-      if (!games || games.length === 0) {
+  Promise.all([getGames("popularity"), getGames("release-date")])
+    .then(function (results) {
+      var popularGames = results[0];
+      var newestGames = results[1];
+
+      if (!popularGames || popularGames.length === 0) {
         featuredGame.innerHTML = "<p>Could not load games.</p>";
         return;
       }
 
-      var featured = games[0];
+      var featured = popularGames[0];
       featuredGame.innerHTML = "";
       featuredGame.appendChild(createFeaturedGame(featured));
       featuredGame.style.cursor = "pointer";
@@ -199,7 +206,7 @@ function loadHomePage() {
         window.location.href = "./details.html?id=" + featured.id;
       });
 
-      showGameCards(games.slice(1, 7), "homeGames", false);
+      showGameCards(popularGames.slice(1, 7), "homeGames", false);
     })
     .catch(function () {
       featuredGame.innerHTML = "<p>Could not load games.</p>";
@@ -210,24 +217,30 @@ function loadGamesPage() {
   var searchInput = document.getElementById("searchInput");
   var platformSelect = document.getElementById("platformSelect");
   var categorySelect = document.getElementById("categorySelect");
+  var sortSelect = document.getElementById("sortSelect");
   var resultText = document.getElementById("resultText");
 
-  if (!searchInput || !platformSelect || !categorySelect || !resultText) {
+  if (!searchInput || !platformSelect || !categorySelect || !sortSelect || !resultText) {
     return;
   }
 
-  getGames()
-    .then(function (games) {
-      allGames = games;
-      showFilteredGames();
-    })
-    .catch(function () {
-      resultText.textContent = "Could not load games.";
-    });
+  function loadGames() {
+    getGames(sortSelect.value)
+      .then(function (games) {
+        allGames = games;
+        showFilteredGames();
+      })
+      .catch(function () {
+        resultText.textContent = "Could not load games.";
+      });
+  }
+
+  loadGames();
 
   searchInput.addEventListener("input", showFilteredGames);
   platformSelect.addEventListener("change", showFilteredGames);
   categorySelect.addEventListener("change", showFilteredGames);
+  sortSelect.addEventListener("change", loadGames);
 }
 
 function renderPagination(totalPages) {
