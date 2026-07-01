@@ -172,6 +172,10 @@ footer a {
   z-index: 2;
 }
 
+.saveButton:hover {
+  background-color: rgb(36, 52, 73);
+}
+
 .saveButton img {
   width: 1.4rem;
   height: 1.4rem;
@@ -202,6 +206,13 @@ footer a {
   margin-top: 2rem;
   margin-bottom: 2rem;
   border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.featuredGame:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1.2rem 2rem rgba(0, 0, 0, 0.25);
+  background-color: rgb(23, 33, 45);
 }
 
 .featuredSaveButton {
@@ -265,6 +276,13 @@ footer a {
   overflow: hidden;
   border: 0.0625rem solid rgba(255, 255, 255, 0.15);
   min-height: 6.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.gameCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1.2rem 2rem rgba(0, 0, 0, 0.25);
+  background-color: rgb(23, 33, 45);
 }
 
 .gameImg {
